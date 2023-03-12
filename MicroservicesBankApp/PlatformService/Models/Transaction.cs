@@ -5,7 +5,7 @@ namespace PlatformService.Models
     public class Transaction
     {
         [Key]
-        public Guid TransactionId { get; set; }
+        public string TransactionId { get; set; }
 
         public Account FromAccount { get; set; }
 

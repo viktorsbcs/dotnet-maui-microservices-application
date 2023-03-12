@@ -5,7 +5,7 @@ namespace PlatformService.Models
     public class Account
     {
         [Key]
-        public Guid AccountId { get; set; }
+        public string AccountId { get; set; }
 
         public User User { get; set; }  
 
