@@ -1,2 +1,2 @@
-# microservices-bank-application
+# Microservices Bank Application
 Online banking application using microservice architecture
