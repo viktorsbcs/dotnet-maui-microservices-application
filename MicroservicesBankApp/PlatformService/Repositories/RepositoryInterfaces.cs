@@ -4,7 +4,7 @@ namespace PlatformService.Repositories
 {
     public interface IUserReporsitory
     {
-        public void CreateUser(string firstName, string secondName);
+        public Task CreateUser(string firstName, string secondName);
         public User GetUser(string userId);
         public List<Account> GetAccountsBelongingToUser(User user);
     }

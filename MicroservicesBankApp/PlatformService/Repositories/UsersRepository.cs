@@ -1,12 +1,28 @@
-﻿using PlatformService.Models;
+﻿using PlatformService.Data;
+using PlatformService.Models;
 
 namespace PlatformService.Repositories
 {
     public class UsersRepository : IUserReporsitory
     {
-        public void CreateUser(string firstName, string secondName)
+        private readonly AppDbContext _context;
+
+        public UsersRepository(AppDbContext context)
         {
-            throw new NotImplementedException();
+            this._context = context;
+        }
+        public async Task CreateUser(string firstName, string secondName)
+        {
+            var newUser = new User()
+            {
+                UserId = Guid.NewGuid().ToString(),
+                FirstName = firstName,
+                SecondName = secondName,
+                Accounts = new List<Account>()
+            };
+
+            await _context.Users.AddAsync(newUser);
+            await _context.SaveChangesAsync();
         }
 
         public List<Account> GetAccountsBelongingToUser(User user)
