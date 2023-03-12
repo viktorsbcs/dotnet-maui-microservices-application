@@ -6,6 +6,7 @@ namespace PlatformService.Repositories
     {
         public void CreateUser(string firstName, string secondName);
         public User GetUser(string userId);
+        public List<Account> GetAccountsBelongingToUser(User user);
     }
 
     public interface IAccountReporsitory

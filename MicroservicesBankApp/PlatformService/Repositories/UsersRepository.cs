@@ -9,6 +9,11 @@ namespace PlatformService.Repositories
             throw new NotImplementedException();
         }
 
+        public List<Account> GetAccountsBelongingToUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public User GetUser(string userId)
         {
             throw new NotImplementedException();
