@@ -1,2 +1,2 @@
 # Microservices Bank Application
-Online banking application using microservice architecture
+Lite .NET MAUI banking application using microservice architecture
