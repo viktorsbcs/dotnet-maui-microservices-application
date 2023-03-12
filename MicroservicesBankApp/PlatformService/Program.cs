@@ -1,3 +1,5 @@
+using PlatformService.Data;
+
 namespace PlatformService
 {
     public class Program
@@ -13,7 +15,11 @@ namespace PlatformService
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddDbContext<AppDbContext>();
+
             var app = builder.Build();
+
+            
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
