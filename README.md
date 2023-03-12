@@ -1,2 +1,2 @@
-# Microservices Bank Application
-Lite .NET MAUI banking application using microservice architecture
+#.NET MAUI Microservices Bank Application
+Introductory .NET MAUI banking application using microservice architecture
