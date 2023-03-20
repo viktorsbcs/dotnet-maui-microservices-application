@@ -23,6 +23,7 @@ namespace PlatformService.Repositories
                 Accounts = new List<Account>()
             };
 
+            //Find if existing user with such if exist
             await _context.Users.AddAsync(newUser);
             await _context.SaveChangesAsync();
         }
@@ -36,10 +37,5 @@ namespace PlatformService.Repositories
         {
             throw new NotImplementedException();
         }
-
-
-
     }
-
-
 }
