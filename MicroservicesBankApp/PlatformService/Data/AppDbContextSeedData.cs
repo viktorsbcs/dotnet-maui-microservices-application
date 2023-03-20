@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PlatformService.Models;
+using PlatformService.Utilities;
+using System.Reflection.Metadata.Ecma335;
 
 namespace PlatformService.Data
 {
@@ -7,9 +9,27 @@ namespace PlatformService.Data
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
+            List<string> randomUserIdList = new List<string>();
+
+            for (int i = 0; i < 3; i++)
+            {
+                while (true)
+                {
+                    var randomUserId = Helpers.GeneretaRandomUserId();
+
+                    if (randomUserIdList.Exists(x => x.Equals(randomUserId)))
+                    {
+                        continue;
+                    }
+
+                    randomUserIdList.Add(randomUserId);
+                    break;
+                }
+            }
+
             var user1 = new User
             {
-                UserId = Guid.NewGuid().ToString(),
+                UserId = randomUserIdList[0],
                 FirstName = "Jack",
                 SecondName = "Stevensen",
                 Accounts = new List<Account>()
@@ -17,7 +37,7 @@ namespace PlatformService.Data
 
             var user2 = new User
             {
-                UserId = Guid.NewGuid().ToString(),
+                UserId = randomUserIdList[1],
                 FirstName = "Marta",
                 SecondName = "Kelvin",
                 Accounts = new List<Account>()
@@ -25,7 +45,7 @@ namespace PlatformService.Data
 
             var user3 = new User
             {
-                UserId = Guid.NewGuid().ToString(),
+                UserId = randomUserIdList[2],
                 FirstName = "Sam",
                 SecondName = "Adams",
                 Accounts = new List<Account>()
