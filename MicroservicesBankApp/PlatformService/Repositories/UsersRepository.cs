@@ -1,5 +1,7 @@
 ﻿using PlatformService.Data;
 using PlatformService.Models;
+using PlatformService.Utilities;
+
 
 namespace PlatformService.Repositories
 {
@@ -15,7 +17,7 @@ namespace PlatformService.Repositories
         {
             var newUser = new User()
             {
-                UserId = Guid.NewGuid().ToString(),
+                UserId = Helpers.GeneretaRandomUserId(),
                 FirstName = firstName,
                 SecondName = secondName,
                 Accounts = new List<Account>()
@@ -34,6 +36,9 @@ namespace PlatformService.Repositories
         {
             throw new NotImplementedException();
         }
+
+
+
     }
 
 
