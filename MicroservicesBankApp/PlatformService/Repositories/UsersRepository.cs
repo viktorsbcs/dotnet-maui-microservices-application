@@ -11,7 +11,7 @@ namespace PlatformService.Repositories
 
         public UsersRepository(AppDbContext context)
         {
-            this._context = context;
+            _context = context;
         }
         public async Task CreateUser(string firstName, string secondName)
         {
@@ -27,12 +27,12 @@ namespace PlatformService.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public List<Account> GetAccountsBelongingToUser(User user)
+        public Task<List<Account>> GetAccountsBelongingToUser(User user)
         {
             throw new NotImplementedException();
         }
 
-        public User GetUser(string userId)
+        public Task<User> GetUser(string userId)
         {
             throw new NotImplementedException();
         }
