@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using PlatformService.Data;
+using PlatformService.Repositories;
 
 namespace PlatformService
 {
@@ -13,10 +15,14 @@ namespace PlatformService
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddDbContext<AppDbContext>(option =>
+            builder.Services.AddDbContext<AppDbContext>(options =>
             {
-                option.UseInMemoryDatabase("InMemoryDb");
+                options.UseInMemoryDatabase("InMemoryDb");
             });
+
+            builder.Services.AddSingleton<IAccountRepository, AccountRepository>();
+            builder.Services.AddSingleton<ITransactionRepository, TransactionRepository>();
+            builder.Services.AddSingleton<IUserRepository, UsersRepository>();
 
             var app = builder.Build();
 
