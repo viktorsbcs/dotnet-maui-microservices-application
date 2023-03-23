@@ -5,7 +5,7 @@ using PlatformService.Utilities;
 
 namespace PlatformService.Repositories
 {
-    public class UsersRepository : IUserReporsitory
+    public class UsersRepository : IUserRepository
     {
         private readonly AppDbContext _dbContext;
 
@@ -24,8 +24,8 @@ namespace PlatformService.Repositories
             };
 
             //Find if existing user with such if exist
-            await _context.Users.AddAsync(newUser);
-            await _context.SaveChangesAsync();
+            await _dbContext.Users.AddAsync(newUser);
+            await _dbContext.SaveChangesAsync();
         }
 
         public Task<List<Account>> GetAccountsBelongingToUser(User user)

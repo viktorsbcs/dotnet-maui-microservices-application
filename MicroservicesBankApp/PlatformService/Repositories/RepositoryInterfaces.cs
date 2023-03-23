@@ -2,14 +2,14 @@
 
 namespace PlatformService.Repositories
 {
-    public interface IUserReporsitory
+    public interface IUserRepository
     {
         public Task CreateUser(string firstName, string secondName);
         public Task<User> GetUser(string userId);
         public Task<List<Account>> GetAccountsBelongingToUser(User user);
     }
 
-    public interface IAccountReporsitory
+    public interface IAccountRepository
     {
         public Task CreateAccount(User user);
         public Task<Account> GetAccount(string accountId);

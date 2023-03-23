@@ -3,7 +3,7 @@ using PlatformService.Models;
 
 namespace PlatformService.Repositories
 {
-    public class AccountRepository : IAccountReporsitory
+    public class AccountRepository : IAccountRepository
     {
         private readonly AppDbContext _dbContext;
 
