@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using PlatformService.Data;
 
 namespace PlatformService
@@ -12,7 +13,10 @@ namespace PlatformService
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddDbContext<AppDbContext>();
+            builder.Services.AddDbContext<AppDbContext>(option =>
+            {
+                option.UseInMemoryDatabase("InMemoryDb");
+            });
 
             var app = builder.Build();
 
