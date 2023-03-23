@@ -1,9 +1,16 @@
-﻿using PlatformService.Models;
+﻿using PlatformService.Data;
+using PlatformService.Models;
 
 namespace PlatformService.Repositories
 {
     public class AccountRepository : IAccountReporsitory
     {
+        private readonly AppDbContext _dbContext;
+
+        public AccountRepository(AppDbContext dbContext) {
+            this._dbContext = dbContext;
+        }
+
         public Task AddToAccountBalance(decimal amount)
         {
             throw new NotImplementedException();

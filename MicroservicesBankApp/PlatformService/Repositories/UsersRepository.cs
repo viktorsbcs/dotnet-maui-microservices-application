@@ -7,11 +7,11 @@ namespace PlatformService.Repositories
 {
     public class UsersRepository : IUserReporsitory
     {
-        private readonly AppDbContext _context;
+        private readonly AppDbContext _dbContext;
 
-        public UsersRepository(AppDbContext context)
+        public UsersRepository(AppDbContext dbContext)
         {
-            _context = context;
+            this._dbContext = dbContext;
         }
         public async Task CreateUser(string firstName, string secondName)
         {
