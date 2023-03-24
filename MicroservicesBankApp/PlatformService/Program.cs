@@ -26,6 +26,8 @@ namespace PlatformService
 
             var app = builder.Build();
 
+            PrepareDb.PreparePopulation(app);
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
