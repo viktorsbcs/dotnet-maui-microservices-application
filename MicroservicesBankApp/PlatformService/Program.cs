@@ -36,6 +36,8 @@ namespace PlatformService
             }
 
 
+
+
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
