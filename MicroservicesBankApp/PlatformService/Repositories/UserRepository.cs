@@ -30,11 +30,6 @@ namespace PlatformService.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public Task<List<Account>> GetAccountsBelongingToUserAsync(User user)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<User> GetUserAsync(string userId)
         {
             var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.UserId == userId);
