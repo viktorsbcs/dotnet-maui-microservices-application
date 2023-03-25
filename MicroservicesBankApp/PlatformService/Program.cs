@@ -16,14 +16,17 @@ namespace PlatformService
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Logging.ClearProviders();
+            builder.Logging.AddConsole();
+
             builder.Services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseInMemoryDatabase("InMemoryDb");
             });
 
-            builder.Services.AddSingleton<IAccountRepository, AccountRepository>();
-            builder.Services.AddSingleton<ITransactionRepository, TransactionRepository>();
-            builder.Services.AddSingleton<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+            builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             var app = builder.Build();
 
