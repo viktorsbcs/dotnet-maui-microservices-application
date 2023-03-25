@@ -17,6 +17,7 @@ namespace PlatformService.Data
 
         public static void SeedData(AppDbContext dbContext)
         {
+            Console.WriteLine("---> Seeding data start");
             List<string> randomUserIdList = new List<string>();
 
             for (int i = 0; i < 3; i++)
@@ -83,7 +84,8 @@ namespace PlatformService.Data
             dbContext.Transactions.AddRange(transaction1);
 
             dbContext.SaveChanges();
-            
+
+            Console.WriteLine("---> Seeding data finish");
 
 
 

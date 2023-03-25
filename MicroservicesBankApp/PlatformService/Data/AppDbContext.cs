@@ -21,8 +21,7 @@ namespace PlatformService.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            if (this.Users.Any() || this.Accounts.Any() || this.Transactions.Any()) return;
-            modelBuilder.Seed();
+            
         }
 
 
