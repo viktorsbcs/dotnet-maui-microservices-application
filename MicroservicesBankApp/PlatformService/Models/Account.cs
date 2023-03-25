@@ -7,8 +7,10 @@ namespace PlatformService.Models
         [Key]
         public string AccountId { get; set; }
 
-        public User User { get; set; }  
+        [Required]
+        public User User { get; set; }
 
+        [Required]
         public decimal Balance { get; set; }    
 
     }
