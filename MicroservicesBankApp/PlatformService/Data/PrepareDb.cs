@@ -41,6 +41,8 @@ namespace PlatformService.Data
                 UserId = "1000",
                 FirstName = "Jack",
                 SecondName = "Stevensen",
+                BirthDate = new DateTime(1984,3,12),
+                Email = "jstevensen@emailserver.com",
                 Accounts = new List<Account>()
             };
 
@@ -49,6 +51,8 @@ namespace PlatformService.Data
                 UserId = "1001",
                 FirstName = "Marta",
                 SecondName = "Kelvin",
+                BirthDate = new DateTime(2003, 10, 29),
+                Email = "marta@amail.jp",
                 Accounts = new List<Account>()
             };
 
@@ -57,6 +61,8 @@ namespace PlatformService.Data
                 UserId = "1002",
                 FirstName = "Sam",
                 SecondName = "Adams",
+                BirthDate = new DateTime(1991, 8, 2),
+                Email = "adamssam@bambomail.com",
                 Accounts = new List<Account>() 
             };
 
