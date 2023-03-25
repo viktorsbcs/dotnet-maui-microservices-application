@@ -38,7 +38,7 @@ namespace PlatformService.Data
 
             var user1 = new User
             {
-                UserId = randomUserIdList[0],
+                UserId = "1000",
                 FirstName = "Jack",
                 SecondName = "Stevensen",
                 Accounts = new List<Account>()
@@ -46,7 +46,7 @@ namespace PlatformService.Data
 
             var user2 = new User
             {
-                UserId = randomUserIdList[1],
+                UserId = "1001",
                 FirstName = "Marta",
                 SecondName = "Kelvin",
                 Accounts = new List<Account>()
@@ -54,7 +54,7 @@ namespace PlatformService.Data
 
             var user3 = new User
             {
-                UserId = randomUserIdList[2],
+                UserId = "1002",
                 FirstName = "Sam",
                 SecondName = "Adams",
                 Accounts = new List<Account>() 
