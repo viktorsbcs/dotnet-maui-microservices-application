@@ -14,23 +14,23 @@ namespace PlatformService.Repositories
             _dbContext = dbContext;
         }
 
-        public Task AddToAccountBalance(decimal amount)
-        {
-
-            return new Task<decimal>(() => amount);
-        }
-
-        public Task CreateAccount(User user)
+        public Task AddToAccountBalanceAsync(decimal amount)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Account> GetAccount(string accountId)
+        public Task CreateAccountAsync(User user)
         {
             throw new NotImplementedException();
         }
 
-        public Task WithdrawFromAccountBalance(decimal amount)
+
+        public Task<Account> GetAccountAsync(string accountId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task WithdrawFromAccountBalanceAsync(decimal amount)
         {
             throw new NotImplementedException();
         }

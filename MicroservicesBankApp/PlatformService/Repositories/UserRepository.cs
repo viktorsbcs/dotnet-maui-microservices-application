@@ -15,7 +15,7 @@ namespace PlatformService.Repositories
         {
             _dbContext = dbContext;
         }
-        public async Task CreateUser(string firstName, string secondName)
+        public async Task CreateUserAsync(string firstName, string secondName)
         {
             var newUser = new User()
             {
@@ -30,12 +30,12 @@ namespace PlatformService.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public Task<List<Account>> GetAccountsBelongingToUser(User user)
+        public Task<List<Account>> GetAccountsBelongingToUserAsync(User user)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<User> GetUser(string userId)
+        public async Task<User> GetUserAsync(string userId)
         {
             var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.UserId == userId);
 

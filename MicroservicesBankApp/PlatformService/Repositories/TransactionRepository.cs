@@ -12,7 +12,7 @@ namespace PlatformService.Repositories
         {
             _dbContext = dbContext;
         }
-        public Task ExecuteTransaction(Account fromAccount, Account toAccount)
+        public Task ExecuteTransactionAsync(Account fromAccount, Account toAccount)
         {
             throw new NotImplementedException();
         }
