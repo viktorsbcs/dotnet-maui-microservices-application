@@ -24,6 +24,10 @@ namespace PlatformService.Repositories
             throw new NotImplementedException();
         }
 
+        Task<List<Account>> IAccountRepository.GetAccountsBelongingToUserAsync(User user)
+        {
+            throw new NotImplementedException();
+        }
 
         public Task<Account> GetAccountAsync(string accountId)
         {
@@ -34,5 +38,7 @@ namespace PlatformService.Repositories
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

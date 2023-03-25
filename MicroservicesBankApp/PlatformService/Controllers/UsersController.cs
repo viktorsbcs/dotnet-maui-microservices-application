@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.SqlServer.Server;
 using PlatformService.Interfaces;
 using PlatformService.Models;
 
@@ -17,13 +18,22 @@ namespace PlatformService.Controllers
             this._logger = logger;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<User>> GetUser(string id)
+        [HttpGet("api/[controller]/get/{id}")]
+        public async Task<IActionResult> GetUserById(string id)
         {
             var user = await _userRepo.GetUserAsync(id);
-            _logger.LogInformation($"{nameof(UsersController)} - GetUser(id={id})");
+            _logger.LogInformation($"{nameof(GetUserById)} - triggered");
 
             return Ok(user);
         }
+
+        [HttpPost]
+        [Route("api/[controller]/create")]
+        public async Task<IActionResult> CreateUser([FromBody] User userData)
+        {
+            return Ok(userData);
+        }
+
+        
     }
 }
