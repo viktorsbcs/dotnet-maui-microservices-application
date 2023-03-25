@@ -18,7 +18,7 @@ namespace PlatformService.Controllers
             this._logger = logger;
         }
 
-        [HttpGet("api/[controller]/get/{id}")]
+        [HttpGet("get/{id}")]
         public async Task<IActionResult> GetUserById(string id)
         {
             var user = await _userRepo.GetUserAsync(id);
@@ -28,7 +28,7 @@ namespace PlatformService.Controllers
         }
 
         [HttpPost]
-        [Route("api/[controller]/create")]
+        [Route("create")]
         public async Task<IActionResult> CreateUser([FromBody] User userData)
         {
             return Ok(userData);
