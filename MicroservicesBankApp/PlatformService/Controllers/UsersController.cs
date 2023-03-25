@@ -19,6 +19,7 @@ namespace PlatformService.Controllers
         }
 
         [HttpGet("get/{id}")]
+        [ProducesResponseType(typeof(User), 200)]
         public async Task<IActionResult> GetUserById(string id)
         {
             var user = await _userRepo.GetUserAsync(id);
@@ -29,6 +30,7 @@ namespace PlatformService.Controllers
 
         [HttpPost]
         [Route("create")]
+        [ProducesResponseType(typeof(User), 200)]
         public async Task<IActionResult> CreateUser([FromBody] User userData)
         {
             return Ok(userData);
