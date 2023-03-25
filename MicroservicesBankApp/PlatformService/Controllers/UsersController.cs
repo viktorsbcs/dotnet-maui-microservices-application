@@ -23,7 +23,6 @@ namespace PlatformService.Controllers
         public async Task<IActionResult> GetUserById(string id)
         {
             var user = await _userRepo.GetUserAsync(id);
-            _logger.LogInformation($"{nameof(GetUserById)} - triggered");
 
             return Ok(user);
         }
