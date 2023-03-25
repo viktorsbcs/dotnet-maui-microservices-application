@@ -1,6 +1,7 @@
 ﻿using PlatformService.Data;
 using PlatformService.Interfaces;
 using PlatformService.Models;
+using System.Reflection.Metadata.Ecma335;
 
 namespace PlatformService.Repositories
 {
@@ -8,13 +9,15 @@ namespace PlatformService.Repositories
     {
         private readonly AppDbContext _dbContext;
 
-        public AccountRepository(AppDbContext dbContext) {
-            this._dbContext = dbContext;
+        public AccountRepository(AppDbContext dbContext)
+        {
+            _dbContext = dbContext;
         }
 
         public Task AddToAccountBalance(decimal amount)
         {
-            throw new NotImplementedException();
+
+            return new Task<decimal>(() => amount);
         }
 
         public Task CreateAccount(User user)

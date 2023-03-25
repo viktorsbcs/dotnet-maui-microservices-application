@@ -23,7 +23,7 @@ namespace PlatformService
 
             builder.Services.AddSingleton<IAccountRepository, AccountRepository>();
             builder.Services.AddSingleton<ITransactionRepository, TransactionRepository>();
-            builder.Services.AddSingleton<IUserRepository, UsersRepository>();
+            builder.Services.AddSingleton<IUserRepository, UserRepository>();
 
             var app = builder.Build();
 

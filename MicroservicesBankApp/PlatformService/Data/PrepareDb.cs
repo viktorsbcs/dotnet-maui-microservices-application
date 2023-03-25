@@ -56,7 +56,7 @@ namespace PlatformService.Data
                 UserId = randomUserIdList[2],
                 FirstName = "Sam",
                 SecondName = "Adams",
-                Accounts = new List<Account>()
+                Accounts = new List<Account>() 
             };
 
             var account1 = new Account { AccountId = Guid.NewGuid().ToString(), User = user1, Balance = 3000 };

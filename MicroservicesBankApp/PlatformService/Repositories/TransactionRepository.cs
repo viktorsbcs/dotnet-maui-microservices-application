@@ -8,8 +8,9 @@ namespace PlatformService.Repositories
     {
         private readonly AppDbContext _dbContext;
 
-        public TransactionRepository(AppDbContext dbContext) {
-            this._dbContext = dbContext;
+        public TransactionRepository(AppDbContext dbContext)
+        {
+            _dbContext = dbContext;
         }
         public Task ExecuteTransaction(Account fromAccount, Account toAccount)
         {

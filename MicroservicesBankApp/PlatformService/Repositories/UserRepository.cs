@@ -6,13 +6,13 @@ using PlatformService.Utilities;
 
 namespace PlatformService.Repositories
 {
-    public class UsersRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _dbContext;
 
-        public UsersRepository(AppDbContext dbContext)
+        public UserRepository(AppDbContext dbContext)
         {
-            this._dbContext = dbContext;
+            _dbContext = dbContext;
         }
         public async Task CreateUser(string firstName, string secondName)
         {
