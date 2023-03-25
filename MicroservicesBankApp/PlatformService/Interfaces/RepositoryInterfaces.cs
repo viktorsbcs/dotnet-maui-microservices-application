@@ -1,6 +1,6 @@
 ﻿using PlatformService.Models;
 
-namespace PlatformService.Repositories
+namespace PlatformService.Interfaces
 {
     public interface IUserRepository
     {

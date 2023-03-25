@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using PlatformService.Data;
+using PlatformService.Interfaces;
 using PlatformService.Repositories;
 
 namespace PlatformService
