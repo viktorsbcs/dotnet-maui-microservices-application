@@ -1,4 +1,5 @@
-﻿using PlatformService.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using PlatformService.Data;
 using PlatformService.Interfaces;
 using PlatformService.Models;
 using PlatformService.Utilities;
@@ -34,9 +35,11 @@ namespace PlatformService.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<User> GetUser(string userId)
+        public async Task<User> GetUser(string userId)
         {
-            throw new NotImplementedException();
+            var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.UserId == userId);
+
+            return user;
         }
     }
 }
