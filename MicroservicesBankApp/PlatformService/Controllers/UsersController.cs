@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.SqlServer.Server;
+using PlatformService.DataTransferObjects;
 using PlatformService.Interfaces;
 using PlatformService.Models;
 
@@ -12,10 +14,12 @@ namespace PlatformService.Controllers
     {
         private readonly IUserRepository _userRepo;
         private readonly ILogger<UsersController> _logger;
+        private readonly IMapper _mapper;
 
-        public UsersController(IUserRepository userRepo, ILogger<UsersController> logger) {
+        public UsersController(IUserRepository userRepo, ILogger<UsersController> logger, IMapper mapper) {
             this._userRepo = userRepo;
             this._logger = logger;
+            this._mapper = mapper;
         }
 
         [HttpGet("get/{id}")]
@@ -24,7 +28,8 @@ namespace PlatformService.Controllers
         {
             var user = await _userRepo.GetUserAsync(id);
 
-            return Ok(user);
+            var userDto = _mapper.Map<UserReadDto>(user);
+            return Ok(userDto);
         }
 
         [HttpPost]

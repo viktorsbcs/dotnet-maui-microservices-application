@@ -28,7 +28,11 @@ namespace PlatformService
             builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+
             var app = builder.Build();
+
 
             PrepareDb.PreparePopulation(app);
 
