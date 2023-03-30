@@ -5,6 +5,7 @@ using Microsoft.SqlServer.Server;
 using PlatformService.DataTransferObjects;
 using PlatformService.Interfaces;
 using PlatformService.Models;
+using PlatformService.Utilities;
 
 namespace PlatformService.Controllers
 {
@@ -35,9 +36,13 @@ namespace PlatformService.Controllers
         [HttpPost]
         [Route("create")]
         [ProducesResponseType(typeof(User), 200)]
-        public async Task<IActionResult> CreateUser([FromBody] User userData)
+        public async Task<IActionResult> CreateUser([FromBody] UserCreateDto userCreateDto)
         {
-            return Ok(userData);
+            var newUser = _mapper.Map<User>(userCreateDto);
+
+            newUser.UserId = Helpers.GeneretaRandomUserId();
+
+            return Ok(newUser);
         }
 
         
