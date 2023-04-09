@@ -10,11 +10,11 @@ namespace PlatformService.Interfaces
 
     public interface IAccountRepository
     {
-        public Task CreateAccountAsync(User user);
+        public Task CreateAccountAsync(string userId);
         public Task<Account> GetAccountAsync(string accountId);
-        public Task<List<Account>> GetAccountsBelongingToUserAsync(User user);
-        public Task AddToAccountBalanceAsync(decimal amount);
-        public Task WithdrawFromAccountBalanceAsync(decimal amount);
+        public Task<List<Account>> GetAccountsBelongingToUserAsync(string userId);
+        public Task AddToAccountBalanceAsync(string accountId, decimal amount);
+        public Task WithdrawFromAccountBalanceAsync(string accountId, decimal amount);
     }
 
     public interface ITransactionRepository
