@@ -19,7 +19,7 @@ namespace PlatformService.Repositories
         {
             var newUser = new User()
             {
-                UserId = Helpers.GeneretaRandomUserId(),
+                UserId = Helpers.GeneretaRandomId(),
                 FirstName = firstName,
                 SecondName = secondName,
                 Accounts = new List<Account>()
