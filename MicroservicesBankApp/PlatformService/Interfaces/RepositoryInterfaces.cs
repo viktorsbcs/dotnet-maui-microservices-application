@@ -19,6 +19,6 @@ namespace PlatformService.Interfaces
 
     public interface ITransactionRepository
     {
-        public Task ExecuteTransactionAsync(Account fromAccount, Account toAccount);
+        public Task ExecuteTransactionAsync(string fromAccountId, string toAccountId, decimal amount);
     }
 }

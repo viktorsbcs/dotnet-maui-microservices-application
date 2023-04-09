@@ -7,14 +7,18 @@ namespace PlatformService.Repositories
     public class TransactionRepository : ITransactionRepository
     {
         private readonly AppDbContext _dbContext;
+        private readonly IAccountRepository _accountRepo;
 
-        public TransactionRepository(AppDbContext dbContext)
+        public TransactionRepository(AppDbContext dbContext, IAccountRepository accountRepo)
         {
             _dbContext = dbContext;
+            _accountRepo = accountRepo;
         }
-        public Task ExecuteTransactionAsync(Account fromAccount, Account toAccount)
+        public async Task ExecuteTransactionAsync(string fromAccountId, string toAccountId, decimal amount)
         {
-            throw new NotImplementedException();
+            await _accountRepo.WithdrawFromAccountBalanceAsync(fromAccountId, amount);
+            await _accountRepo.AddToAccountBalanceAsync(toAccountId, amount); 
+
         }
     }
 }
