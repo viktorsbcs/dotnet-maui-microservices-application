@@ -40,7 +40,7 @@ namespace PlatformService.Controllers
         {
             var newUser = _mapper.Map<User>(userCreateDto);
 
-            newUser.UserId = Helpers.GeneretaRandomUserId();
+            newUser.UserId = Helpers.GeneretaRandomId();
 
             return Ok(newUser);
         }

@@ -24,7 +24,7 @@ namespace PlatformService.Data
             {
                 while (true)
                 {
-                    var randomUserId = Helpers.GeneretaRandomUserId();
+                    var randomUserId = Helpers.GeneretaRandomId();
 
                     if (randomUserIdList.Exists(x => x.Equals(randomUserId)))
                     {
