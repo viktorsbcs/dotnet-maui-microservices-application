@@ -4,8 +4,9 @@ namespace PlatformService.Interfaces
 {
     public interface IUserRepository
     {
-        public Task CreateUserAsync(string firstName, string secondName);
+        public Task<User> CreateUserAsync(string firstName, string secondName, string email, DateTime birthDate);
         public Task<User> GetUserAsync(string userId);
+        public Task<List<User>> GetAllUsersAsync();
     }
 
     public interface IAccountRepository
