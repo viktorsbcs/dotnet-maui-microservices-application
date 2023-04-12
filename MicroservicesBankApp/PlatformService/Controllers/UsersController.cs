@@ -18,31 +18,52 @@ namespace PlatformService.Controllers
         private readonly IMapper _mapper;
 
         public UsersController(IUserRepository userRepo, ILogger<UsersController> logger, IMapper mapper) {
-            this._userRepo = userRepo;
-            this._logger = logger;
-            this._mapper = mapper;
+            _userRepo = userRepo;
+            _logger = logger;
+            _mapper = mapper;
         }
 
-        [HttpGet("get/{id}")]
-        [ProducesResponseType(typeof(User), 200)]
+        [HttpGet("find/{id}", Name = nameof(GetUserById))]
+        [ProducesResponseType(typeof(UserReadDto), 200)]
         public async Task<IActionResult> GetUserById(string id)
         {
             var user = await _userRepo.GetUserAsync(id);
+            
+            if(user is null)
+            {
+                return NotFound();
+            }
 
-            var userDto = _mapper.Map<UserReadDto>(user);
-            return Ok(userDto);
+            return Ok(_mapper.Map<UserReadDto>(user));
+        }
+
+        [HttpGet("all", Name =nameof(GetAllUsers))]
+        [ProducesResponseType(typeof(List<UserReadDto>), 200)]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var userList = await _userRepo.GetAllUsersAsync();
+            var userReadDtoList = new List<UserReadDto>();
+
+            foreach (var user in userList)
+            {
+                var userReadDto = _mapper.Map<UserReadDto>(user);
+                userReadDtoList.Add(userReadDto);
+            }
+
+            return Ok(userReadDtoList);
         }
 
         [HttpPost]
-        [Route("create")]
-        [ProducesResponseType(typeof(User), 200)]
+        [Route("create", Name = nameof(CreateUser))]
+        [ProducesResponseType(typeof(UserReadDto), 200)]
         public async Task<IActionResult> CreateUser([FromBody] UserCreateDto userCreateDto)
         {
             var newUser = _mapper.Map<User>(userCreateDto);
 
-            newUser.UserId = Helpers.GeneretaRandomId();
+            var createdUser = await _userRepo.CreateUserAsync(newUser.FirstName, newUser.SecondName, newUser.Email, newUser.BirthDate);
+            var userReadDto = _mapper.Map<UserReadDto>(createdUser);
 
-            return Ok(newUser);
+            return CreatedAtRoute(nameof(CreateUser), new { userId = userReadDto.UserId, userReadDto } );
         }
 
         
